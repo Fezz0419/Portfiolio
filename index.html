@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fezile Mpotulo — Portfolio</title>
+
+  <!-- Content Security Policy (adjust 'YOUR_API_ORIGIN' to your API host) -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; connect-src 'self' https://YOUR_API_ORIGIN; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; font-src 'self' data:;">
+  <!-- Strict Transport Security is best set on server: Strict-Transport-Security header -->
+
+    <link rel="stylesheet" href="style.css" />
+    
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">FM</div>
+        <div>
+          <div style="font-weight:800">Fezile Mpotulo</div>
+          <div style="font-size:13px;color:#6b7280">Software Engineer • Portfolio</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <h1 class="title">Designing robust software — with clarity and reliability</h1>
+          <p class="subtitle">I build resilient web systems and clear UIs. Corporate-grade engineering, secure APIs, and pragmatic design.</p>
+
+          <div style="display:flex;gap:12px;align-items:center">
+            <button class="btn btn-primary" onclick="scrollToId('projects')">View Projects</button>
+            <a class="btn btn-ghost" href="#contact">Contact</a>
+          </div>
+
+          <div style="margin-top:20px" class="card">
+            <strong>Current focus</strong>
+            <p class="muted" style="margin:8px 0 0">API security, SaaS integrations, and scalable backend systems for enterprise clients.</p>
+          </div>
+        </div>
+
+        <aside>
+          <div class="card">
+            <h3 style="margin-top:0">Quick Stats</h3>
+            <ul style="margin: 6px 0 0; padding-left:20px; color:#333">
+              <li>10+ enterprise projects</li>
+              <li>Specialised in secure REST & GraphQL APIs</li>
+              <li>CI/CD, testing & observability</li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about" class="section">
+        <div class="card">
+          <h3>About Me</h3>
+          <p class="muted">I design maintainable systems with a focus on security and compliance. My approach combines rigorous testing, minimal but polished UI and hardened APIs.</p>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <h3>Projects</h3>
+        <div class="grid">
+          <div class="proj card"><h4>Secure Contact API</h4><p class="muted">Enterprise grade contact pipeline with rate limiting, spam protection and audit logs.</p><div class="tags"><span class="tag">Node.js</span><span class="tag">Express</span></div></div>
+          <div class="proj card"><h4>Invoice Dashboard</h4><p class="muted">A clean, responsive dashboard for finance teams.</p><div class="tags"><span class="tag">React</span><span class="tag">Postgres</span></div></div>
+          <div class="proj card"><h4>Telemetry Collector</h4><p class="muted">Lightweight collector with batch uploading and encryption-at-rest.</p><div class="tags"><span class="tag">Go</span><span class="tag">K8s</span></div></div>
+        </div>
+      </section>
+
+      <section id="skills" class="section">
+        <h3>Skills</h3>
+        <div class="skills">
+          <div class="skill">API Security</div>
+          <div class="skill">Design & UX</div>
+          <div class="skill">Testing & TDD</div>
+          <div class="skill">CI/CD</div>
+          <div class="skill">Cloud Architecture</div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <h3>Contact</h3>
+        <div class="card">
+          <p class="muted">Send a note — this form posts to a secured endpoint. We never store raw message content without encryption.</p>
+
+          <form id="contactForm" onsubmit="return sendContact(event)">
+            <div class="contact-grid">
+              <div>
+                <div class="form-row"><label>Name</label><input id="name" name="name" required maxlength="120" /></div>
+                <div class="form-row"><label>Email</label><input id="email" name="email" type="email" required maxlength="120" /></div>
+                <div class="form-row"><label>Subject</label><input id="subject" name="subject" maxlength="120" /></div>
+              </div>
+              <div>
+                <div class="form-row"><label>Message</label><textarea id="message" name="message" required maxlength="2000"></textarea></div>
+                <div class="form-row"><small class="muted">All messages are validated and sanitized before processing.</small></div>
+                <div style="display:flex;gap:8px">
+                  <button class="btn btn-primary" type="submit">Send message</button>
+                  <button class="btn" type="reset">Reset</button>
+                </div>
+              </div>
+            </div>
+            <!-- CSRF token pattern: server will set a cookie token; front-end reads it if available -->
+          </form>
+
+          <div id="status" style="margin-top:12px"></div>
+        </div>
+      </section>
+
+      <footer>
+        <div>© <strong>Fezile Mpotulo</strong> • Built with clarity and security • </div>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
